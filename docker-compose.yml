@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  web:
+    build: ./app/
+    volumes:
+     - ./app:/app
+     - /app/node_modules
+    ports:
+     - "1337:1337"
+    depends_on:
+     - mongo
+
+  mongo:
+    image: mongo
+    ports:
+     - "27017:27017"
+    
